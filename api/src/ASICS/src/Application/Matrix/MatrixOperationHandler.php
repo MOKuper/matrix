@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ASICS\Application\Matrix;
 
-use ASICS\Application\Matrix\MatrixOperation;
 use ASICS\Domain\Matrix\Operation;
 use ASICS\Domain\Matrix\OperationFactory;
 

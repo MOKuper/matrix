@@ -11,7 +11,6 @@ I started with a fresh Laravel 8 installation using PHP 7.4. To make reviewing e
 
 More important, I also made this decision to separate the Framework and ASICS-related code. This to make the application more 'standalone' and less dependent on the framework (using the good parts when needed). It creates a mindset focused on your own architecture, not the Laravel approach. It also makes upgrading easier.
 
-
 ### CQRS Lite & Hexagonal architecture
 
 I choose an approach that takes some inspiration from CQRS
@@ -33,16 +32,16 @@ I took some approaches to show SOLID skills and make the application scalable
 - The DatasourceReaderManager can be swapped out by any reader, or have multiple readers to support multiple files.
 - The transformers can be replaced or more can be added to support additional transformations or operations
 
-
 ### Infrastructure
 
-There is not much needed to get started. I did not implement a database, message brokers, caching and other infrastructural approaches, to save time and show my approach to the problem.
+There is not much needed to get started. I did not implement a database, message brokers, caching and other infrastructural approaches.
+
 I used Laravel's available solutions for this: The Job Dispatcher as (synchronous and local) command bus as (also synchronous and local) event bus.
 I did not abstract those pieces away, but with a simple contract it can be swapped out later by more advanced messaging infrastructure.
 
 ## Testing
 
-I did not fully test all code, but I tried to show some testing approaches for Unit, Integration and Feature testing. In general I aimed to show my approach to different tests and prove you can do well without mocking everything out.
+I did not fully test all code, but I tried to show some testing approaches for Unit, Integration and Feature testing. Generally I aimed to show my approach to different tests and prove you can do well without mocking everything out.
 This is also true for the Domain layer tests where I treat the Dataset and its dependencies as 1 unit (so including the transformers).
 
 ## Frontend
@@ -65,5 +64,5 @@ From the root project folder
 4. Run `yarn serve` from `./spa` to run the server that serves the frontend
 5. Visit localhost:8080 to view the application
 
-pro tip: the client will try to reach the api on `127.0.0.1:8000`
+pro tip: the client will try to reach the api on `127.0.0.1:8000`. 
 

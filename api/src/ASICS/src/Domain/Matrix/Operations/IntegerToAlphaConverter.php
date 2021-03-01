@@ -20,11 +20,11 @@ class IntegerToAlphaConverter implements Operation
 
     public function run(): array
     {
-        $resultMatrix = collect($this->data)->map(function($arrayContainer) {
-            return collect($arrayContainer)->map(function($item){
+        $resultMatrix = collect($this->data)->map(function ($arrayContainer) {
+            return collect($arrayContainer)->map(function ($item) {
                 return Num2Alpha::for($item);
             });
-    });
+        });
 
         return $resultMatrix->toArray();
     }
