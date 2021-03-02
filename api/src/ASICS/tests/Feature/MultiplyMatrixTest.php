@@ -8,8 +8,6 @@ class MultiplyMatrixTest extends FeatureTestCase
 {
     public function testItMultipliesAssignableMatrices()
     {
-        $this->withoutExceptionHandling();
-
         $response = $this->post(
             route('matrix-multiplication'),
             [
@@ -34,6 +32,38 @@ class MultiplyMatrixTest extends FeatureTestCase
                     [1170, 292, 1211],
                     [2655, 817, 3208],
                     [1113, 176, 1276],
+                ],
+            ]
+        );
+
+    }
+
+    public function testItMultipliesAssignableMatricesAndTransformItToAlpha()
+    {
+        $response = $this->post(
+            route('matrix-multiplication', ['convert' => 'yes']),
+            [
+                'data' => [
+                    'a' => [
+                        [2, 3, 12],
+                        [21, 7, 17],
+                        [6, 1, 9],
+                    ],
+                    'b' => [
+                        [54, 11, 82],
+                        [6, 74, 1],
+                        [87, 4, 87],
+                    ],
+                ],
+            ]
+        );
+
+        $response->assertJson(
+            [
+                "data" => [
+                    ['ARZ', 'KF', 'ATO'],
+                    ['CXC', 'AEK', 'DSJ'],
+                    ['APU', 'FT', 'AWB'],
                 ],
             ]
         );
